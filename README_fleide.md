@@ -71,3 +71,21 @@ flake 8 hello.py
 pylint hello.py
 
 ```
+
+
+## Chapter 2 - Working with strings
+
+### Getting part of a string
+
+```Python
+
+help(str)
+
+word[n]     # from left, 1 char starting at 0
+word[-n]    # from right, 1 char starting at -1
+
+word[n:p]   # substring()
+word[:p]    # left()
+word[n:]    # right()
+
+```
