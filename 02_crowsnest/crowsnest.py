@@ -28,8 +28,9 @@ def main():
     """Make a jazz noise here"""
 
     args = get_args()
-    pos_arg = args.positional
-    print(f'positional = "{pos_arg}"')
+
+    output_message = 'Ahoy, Captain, a '+ args.positional +' off the larboard bow!'
+    print(output_message)
 
 
 # --------------------------------------------------
