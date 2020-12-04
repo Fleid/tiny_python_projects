@@ -16,7 +16,7 @@ def get_args():
         description='Look out matey!',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-    parser.add_argument('positional', #name of the parameter in the program
+    parser.add_argument('word', #name of the parameter in the program
                         metavar='mob', #name of the parameter for the caller
                         help='A mobile object ahead')
 
@@ -28,8 +28,14 @@ def main():
     """Make a jazz noise here"""
 
     args = get_args()
+    word = args.word
 
-    output_message = 'Ahoy, Captain, a '+ args.positional +' off the larboard bow!'
+    # Is the first letter a vowel?
+    first_letter = word[0].lower()
+    article = 'an' if first_letter in 'aeiou' else 'a'
+
+    output_message = f'Ahoy, Captain, {article} {word} off the larboard bow!'
+
     print(output_message)
 
 
