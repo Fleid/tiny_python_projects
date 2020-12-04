@@ -37,8 +37,13 @@ def main():
     sorted = args.sorted
     foods = args.foods
 
-    output_foods = ', '.join(foods)
-    print(f'You are bringing {output_foods}.')
+    if (len(foods) == 1):
+        print(f'You are bringing {foods[0]}.')
+    elif (len(foods) == 2):
+        print(f'You are bringing {foods[0]} and {foods[1]}.')
+    else:
+        out = ', '.join(foods)
+        print(f'You are bringing {out}.')
 
 
 # --------------------------------------------------
