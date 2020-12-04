@@ -84,8 +84,41 @@ help(str)
 word[n]     # from left, 1 char starting at 0
 word[-n]    # from right, 1 char starting at -1
 
+# slicing a string as a list of strings
+
 word[n:p]   # substring()
 word[:p]    # left()
 word[n:]    # right()
+
+```
+
+## Chapter 3 - Working with lists
+
+``` Python
+
+items = list()
+len(items)
+
+items.append('b')
+items.append(['c','d']) # ['b', ['c', 'd']]
+items.extend(['c','d']) # ['b', 'c', 'd']
+
+items.insert(0, 'a')
+items.index('chips')    # returns 0, unsafe - check if there before
+                        # slicing applies, and is safe
+
+items.pop()             # removes index -1 (last)
+items.pop(0)            # a
+
+items.remove('b')       # removes the first occurence, unsafe - check if there before
+
+items.sort()            # in-place
+items.sort(reverse=True)
+items.reverse()         #in-place
+sorted(items)           # returns a new sorted list
+reversed(items)         #returns a new reversed list, lazy, needs to be invoked via list(...)
+
+items_joined = ', '.join(items)        # output a single list with separator
+
 
 ```
