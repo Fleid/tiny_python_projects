@@ -118,7 +118,7 @@ items.reverse()         #in-place
 sorted(items)           # returns a new sorted list
 reversed(items)         #returns a new reversed list, lazy, needs to be invoked via list(...)
 
-items_joined = ', '.join(items)        # output a single list with separator
+items_joined = ', '.join(items)        # output a single string with separator
 
 
 ```
