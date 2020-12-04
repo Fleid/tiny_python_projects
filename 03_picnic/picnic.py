@@ -42,8 +42,9 @@ def main():
     elif (len(foods) == 2):
         print(f'You are bringing {foods[0]} and {foods[1]}.')
     else:
-        out = ', '.join(foods)
-        print(f'You are bringing {out}.')
+        last_food = foods.pop(-1)
+        comma_sep_list = ', '.join(foods)
+        print(f'You are bringing {comma_sep_list}, and {last_food}.')
 
 
 # --------------------------------------------------
