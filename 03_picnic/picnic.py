@@ -37,17 +37,19 @@ def main():
     sorted = args.sorted
     foods = args.foods
 
-    if sorted: foods.sort()
+    if sorted:
+        foods.sort()
 
+    bringing = ''
     if (len(foods) == 1):
-        print(f'You are bringing {foods[0]}.')
+        bringing = foods[0]
     elif (len(foods) == 2):
-        print(f'You are bringing {foods[0]} and {foods[1]}.')
+        bringing = f'{foods[0]} and {foods[1]}'
     else:
         last_food = foods.pop(-1)
-        comma_sep_list = ', '.join(foods)
-        print(f'You are bringing {comma_sep_list}, and {last_food}.')
+        bringing = ', '.join(foods) + f', and {last_food}'
 
+    print(f'You are bringing {bringing}.')
 
 # --------------------------------------------------
 if __name__ == '__main__':
