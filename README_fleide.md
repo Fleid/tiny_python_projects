@@ -1,5 +1,12 @@
 # Tiny Python Projects
 
+## Meta
+
+Terminal displays:
+- Top, **run**
+- Bottom left (alt shift -), **test** : `pytest -v -x test.py`
+- Bottom right (alt shift =), **git** : `git add.` `git commit -m ...`, `git push origin master`
+
 ## Chapter 0 - Installation
 
 First pip was missing so:
