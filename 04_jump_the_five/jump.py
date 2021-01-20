@@ -29,7 +29,12 @@ def main():
     args = get_args()
     pos_arg = args.str
 
-    print(f'positional = "{pos_arg}"')
+    jumper = {'1': '9','2': '8','2': '8','3': '7','4': '6','5': '0','6': '4','7': '3','8': '2','9': '1','0': '5'}
+    new_text = ''
+
+    for char in pos_arg:
+        new_text +=jumper.get(char, char)
+    print(new_text)
 
 
 # --------------------------------------------------
