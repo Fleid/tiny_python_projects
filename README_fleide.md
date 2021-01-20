@@ -4,7 +4,7 @@
 
 Terminal displays:
 - Top, **run** :
-- Bottom left (alt shift -), **test** : `pytest -v -x test.py`
+- Bottom left (alt shift -), **test** : `pytest -v -x test.py` or `make` if there's a Makefile
 - Bottom right (alt shift =), **git** : `git add.` `git commit -m ...`, `git push origin master`
 
 ## Chapter 0 - Installation
