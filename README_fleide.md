@@ -61,7 +61,7 @@ Nice to have:
 Using `argparse`
 
 
-```Python
+```PYTHON
 import argparse
 
 parser = argparse.ArgumentParser(description='Say Hello')
@@ -84,7 +84,7 @@ pylint hello.py
 
 ### Getting part of a string
 
-```Python
+```PYTHON
 
 help(str)
 
@@ -101,7 +101,7 @@ word[n:]    # right()
 
 ## Chapter 3 - Working with lists
 
-``` Python
+```PYTHON
 
 items = list()
 len(items)
@@ -127,5 +127,40 @@ reversed(items)         #returns a new reversed list, lazy, needs to be invoked 
 
 items_joined = ', '.join(items)        # output a single string with separator
 
+
+```
+
+## Chapter 4 - Working with dictionaries
+
+```PYTHON
+
+answers = dict()
+answers = {}
+
+answers = dict(name='Lancelot',quest='Holy Grail')
+answers= {'name': 'Lancelot', 'quest': 'Holy Grail'}
+
+answers['name']
+answers['age']          # => exception
+'age' in answers        # => false
+answers.get('age')      # => nothing
+answers.get('age',30)   # => 30
+
+len(answers)
+answers.keys()
+answers.values()
+
+for key in answers.keys():
+    print(key, answers[key])
+
+#or
+
+answers.items()
+for key, value in answers.items():
+    print(key, value)
+
+dict.pop()
+dict.update()
+#etc
 
 ```
