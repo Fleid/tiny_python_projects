@@ -3,7 +3,7 @@
 ## Meta
 
 Terminal displays:
-- Top, **run**
+- Top, **run** :
 - Bottom left (alt shift -), **test** : `pytest -v -x test.py`
 - Bottom right (alt shift =), **git** : `git add.` `git commit -m ...`, `git push origin master`
 
