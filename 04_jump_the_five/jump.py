@@ -36,6 +36,12 @@ def main():
         new_text +=jumper.get(char, char)
     print(new_text)
 
+    # also nice : list comprehension
+    new_text2 = ''.join([jumper.get(char,char) for char in pos_arg])
+    # also nice : str method
+    new_text3 = pos_arg.translate(str.maketrans(jumper))
+
+
 
 # --------------------------------------------------
 if __name__ == '__main__':
