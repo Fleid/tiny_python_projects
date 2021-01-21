@@ -164,3 +164,22 @@ dict.update()
 #etc
 
 ```
+
+## Chapter 5 - Working with files and STDOUT
+
+```PYTHON
+
+import os
+os.path.isfile('haha.csv')
+os.path.dirname(file)
+os.path.basename(file)
+
+os.getcwd()     # Current directory
+
+file_handler = open(file)
+file_handler.read()     # Empties the file handler
+file_handler.seek(0)    # To return to start and be able to read again
+
+str = open(file).read().rstrip() # Better (plus option to trim right)
+
+```
