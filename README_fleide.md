@@ -176,10 +176,21 @@ os.path.basename(file)
 
 os.getcwd()     # Current directory
 
+# Reading
+
 file_handler = open(file)
 file_handler.read()     # Empties the file handler
 file_handler.seek(0)    # To return to start and be able to read again
 
 str = open(file).read().rstrip() # Better (plus option to trim right)
+
+# Writing
+
+out_fh = open('new.txt','wt')   # Modes : r/w/append, and text/bytes
+
+out_fh.write('Some text plus a return feed because else its missing \n')
+print('or via print and then no need for the return', file=out_fh)
+
+out_fh.close()
 
 ```

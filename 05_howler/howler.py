@@ -21,9 +21,11 @@ def get_args():
                         help='A positional argument')
 
     parser.add_argument('-o',
-                        '--on',
-                        help='A boolean flag',
-                        action='store_true')
+                        '--outfile',
+                        help='Output filename',
+                        metavar='str',
+                        type=str,
+                        default='')
 
     return parser.parse_args()
 
@@ -33,21 +35,22 @@ def main():
     """Make a jazz noise here"""
 
     args = get_args()
-    flag_arg = args.on
+    out_arg = args.outfile
     pos_arg = args.positional
 
     str = ''
 
-    if flag_arg:
-        if os.path.isfile(pos_arg):
-            str = open(pos_arg).read().rstrip().upper()
-        else:
-            #ERROR PATH
-            print('This is not working')
+    if os.path.isfile(pos_arg):
+        str = open(pos_arg).read().rstrip().upper()
     else:
         str = pos_arg.upper()
 
-    print(str)
+    if out_arg:
+        out_fh = open(out_arg,'wt')
+        print(str, file=out_fh)
+        out_fh.close()
+    else:
+        print(str)
 
 
 # --------------------------------------------------
