@@ -211,3 +211,9 @@ text = io.StringIO(filepath)
 
 
 ```
+
+## Chapter 6 - Reading files and STDIN
+
+```PYTHON
+
+```
