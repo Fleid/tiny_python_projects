@@ -216,4 +216,18 @@ text = io.StringIO(filepath)
 
 ```PYTHON
 
+import argparse
+import sys
+
+parser.add_argument('file',
+                    help='Input file(s)',
+                    metavar='FILE',
+                    type=argparse.FileType('rt'),
+                    default=[sys.stdin], # default to STDIN
+                    nargs='*') # 0 or more
+
+#...
+
+print(f'{num_lines:8}{num_words:8}{num_bytes:8} {fh.name}')
+
 ```
