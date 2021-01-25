@@ -182,15 +182,32 @@ file_handler = open(file)
 file_handler.read()     # Empties the file handler
 file_handler.seek(0)    # To return to start and be able to read again
 
-str = open(file).read().rstrip() # Better (plus option to trim right)
+if os.path.isfile(file):
+    str = open(file).read().rstrip() # Better (plus option to trim right)
 
 # Writing
 
 out_fh = open('new.txt','wt')   # Modes : r/w/append, and text/bytes
 
+# NB : sys.stdout is a file handler!
+out_fh = open('new.txt','wt') if flag else sys.stdout
+
 out_fh.write('Some text plus a return feed because else its missing \n')
 print('or via print and then no need for the return', file=out_fh)
 
 out_fh.close()
+
+# Reading large files
+
+if os.path.isfile(file):
+    text = open(file) # Open but not read
+
+for line in text:
+    str = line.upper()
+
+#also
+import io
+text = io.StringIO(filepath)
+
 
 ```
