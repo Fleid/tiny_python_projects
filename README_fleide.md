@@ -238,6 +238,16 @@ print(f'{num_lines:8}{num_words:8}{num_bytes:8} {fh.name}')
 
 ```PYTHON
 
+dictionary = {}
 
+for line in dictionary_source:
+    dictionary[line[0].upper()] = line.rstrip()
+
+#alt
+lookup = { line[0].upper() : line.rstrip() for line in dictionary_source}
+
+#from module import function as alias
+from pprint import pprint as pp
+pp(dictionary)
 
 ```

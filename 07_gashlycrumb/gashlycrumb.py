@@ -43,7 +43,7 @@ def main():
     dictionary = {}
 
     for line in dictionary_source:
-        dictionary[line[0]] = line.rstrip()
+        dictionary[line[0].upper()] = line.rstrip()
 
     for letter in letters:
         print(dictionary.get(letter.upper(),'I do not know \"'+letter+'\".'))
