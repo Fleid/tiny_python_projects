@@ -146,6 +146,8 @@ answers['age']          # => exception
 answers.get('age')      # => nothing
 answers.get('age',30)   # => 30
 
+answers['key'] = 'value'
+
 len(answers)
 answers.keys()
 answers.values()
