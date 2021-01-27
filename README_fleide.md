@@ -231,3 +231,11 @@ parser.add_argument('file',
 print(f'{num_lines:8}{num_words:8}{num_bytes:8} {fh.name}')
 
 ```
+
+## Chapter 7 - Using a dictionary
+
+```PYTHON
+
+
+
+```
