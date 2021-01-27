@@ -34,7 +34,7 @@ def get_args():
 
 # --------------------------------------------------
 def main():
-    """Make a jazz noise here"""
+    """Gashly Crumbing the Crumbs"""
 
     args = get_args()
     letters = args.letter
@@ -46,7 +46,7 @@ def main():
         dictionary[line[0]] = line.rstrip()
 
     for letter in letters:
-        print(dictionary.get(letter.upper(),letter+' is not found'))
+        print(dictionary.get(letter.upper(),'I do not know \"'+letter+'\".'))
 
 # --------------------------------------------------
 if __name__ == '__main__':
