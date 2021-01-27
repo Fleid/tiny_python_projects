@@ -82,8 +82,6 @@ pylint hello.py
 
 ## Chapter 2 - Working with strings
 
-### Getting part of a string
-
 ```PYTHON
 
 help(str)
@@ -249,5 +247,12 @@ lookup = { line[0].upper() : line.rstrip() for line in dictionary_source}
 #from module import function as alias
 from pprint import pprint as pp
 pp(dictionary)
+
+```
+
+## Chapter 8 - Find and replace
+
+```PYTHON
+
 
 ```
