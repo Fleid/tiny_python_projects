@@ -2,69 +2,55 @@
 """
 Author : fleide <fleide@localhost>
 Date   : 2021-01-27
-Purpose: Rock the Casbah
+Purpose: Chapter 08 - Find and replace strings
 """
 
 import argparse
-
+import os
 
 # --------------------------------------------------
 def get_args():
     """Get command-line arguments"""
 
     parser = argparse.ArgumentParser(
-        description='Rock the Casbah',
+        description='Apples and Bananas',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-    parser.add_argument('positional',
-                        metavar='str',
-                        help='A positional argument')
-
-    parser.add_argument('-a',
-                        '--arg',
-                        help='A named string argument',
-                        metavar='str',
+    parser.add_argument('text',
+                        metavar='text',
                         type=str,
-                        default='')
+                        help='Input text or file')
 
-    parser.add_argument('-i',
-                        '--int',
-                        help='A named integer argument',
-                        metavar='int',
-                        type=int,
-                        default=0)
+    parser.add_argument('-v',
+                        '--vowel',
+                        help='The vowel to substitute, default (a)',
+                        metavar='vowel',
+                        type=str,
+                        choices=['a','e','i','o','u'],
+                        default='a')
 
-    parser.add_argument('-f',
-                        '--file',
-                        help='A readable file',
-                        metavar='FILE',
-                        type=argparse.FileType('rt'),
-                        default=None)
+    args = parser.parse_args()
 
-    parser.add_argument('-o',
-                        '--on',
-                        help='A boolean flag',
-                        action='store_true')
+    if os.path.isfile(args.text):
+        args.text = open(args.text).read().rstrip()
 
-    return parser.parse_args()
+    return args
 
 
 # --------------------------------------------------
 def main():
-    """Make a jazz noise here"""
+    """Find and replace strings"""
 
     args = get_args()
-    str_arg = args.arg
-    int_arg = args.int
-    file_arg = args.file
-    flag_arg = args.on
-    pos_arg = args.positional
+    text= args.text
+    v = args.vowel
 
-    print(f'str_arg = "{str_arg}"')
-    print(f'int_arg = "{int_arg}"')
-    print('file_arg = "{}"'.format(file_arg.name if file_arg else ''))
-    print(f'flag_arg = "{flag_arg}"')
-    print(f'positional = "{pos_arg}"')
+    vowels=['a','e','i','o','u']
+    for vowel in vowels:
+        text = text.replace(vowel,v)
+        text = text.replace(vowel.upper(),v.upper())
+
+    print(text)
 
 
 # --------------------------------------------------
