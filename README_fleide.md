@@ -254,5 +254,44 @@ pp(dictionary)
 
 ```PYTHON
 
+# Using list comprehension
+
+squares = [num ** 2 for num in range(1,5)]
+
+new_text = [
+    vowel if c in 'aeiou' else vowel.upper() if c in 'AEIOU' else c for c in text
+]
+
+# Using list comprehension with a function
+
+def new_char(c):
+    return vowel if c in 'aeiou' else vowel.upper() if c in 'AEIOU' else c
+
+new_text = ''.join([new_char(c) for c in text])
+
+# Using the map (lazy) function
+
+def new_char(c):
+    return vowel if c in 'aeiou' else vowel.upper() if c in 'AEIOU' else c
+
+new_text = ''.join(map(new_char,text))
+
+
+# Using the map (lazy) function with anonymous function (lambda)
+
+new_text = ''.join(
+    map (
+        lambda c: vowel if c in 'aeiou' else vowel.upper() if c in 'AEIOU' else c
+        ,text
+    )
+)
+
+# Using Regex
+
+import re
+pattern = '[aeiou]'
+vowel = 'o'
+new_text = re.sub(pattern, vowel, text)
+new_text = re.sub(pattern.upper(), vowel.upper(), new_text)
 
 ```
