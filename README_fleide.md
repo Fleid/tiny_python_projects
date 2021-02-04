@@ -80,7 +80,7 @@ pylint hello.py
 ```
 
 
-## Chapter 2 - Working with strings
+## Chapter 2 - Strings
 
 ```PYTHON
 
@@ -97,7 +97,7 @@ word[n:]    # right()
 
 ```
 
-## Chapter 3 - Working with lists
+## Chapter 3 - Lists
 
 ```PYTHON
 
@@ -125,10 +125,18 @@ reversed(items)         #returns a new reversed list, lazy, needs to be invoked 
 
 items_joined = ', '.join(items)        # output a single string with separator
 
+# easier way to generate a list of individual static words
+adjectives = """
+bankrupt base caterwauling corrupt cullionly detestable dishonest false
+filthsome filthy foolish foul gross heedless indistinguishable infected
+insatiate irksome lascivious lecherous loathsome lubbery old peevish
+rascaly rotten ruinous scurilous scurvy slanderous sodden-witted
+thin-faced toad-spotted unmannered vile wall-eyed
+""".strip().split()
 
 ```
 
-## Chapter 4 - Working with dictionaries
+## Chapter 4 - Dictionaries
 
 ```PYTHON
 
@@ -165,7 +173,7 @@ dict.update()
 
 ```
 
-## Chapter 5 - Working with files and STDOUT
+## Chapter 5 - Reading/writing files and STDOUT
 
 ```PYTHON
 
@@ -212,7 +220,7 @@ text = io.StringIO(filepath)
 
 ```
 
-## Chapter 6 - Reading files and STDIN
+## Chapter 6 - Reading files and STDIN, f'{}'
 
 ```PYTHON
 
@@ -232,7 +240,7 @@ print(f'{num_lines:8}{num_words:8}{num_bytes:8} {fh.name}')
 
 ```
 
-## Chapter 7 - Using a dictionary
+## Chapter 7 - Parsing text via a dictionary
 
 ```PYTHON
 
@@ -250,7 +258,7 @@ pp(dictionary)
 
 ```
 
-## Chapter 8 - Find and replace
+## Chapter 8 - List comprehension, map, lambda
 
 ```PYTHON
 
@@ -293,5 +301,41 @@ pattern = '[aeiou]'
 vowel = 'o'
 new_text = re.sub(pattern, vowel, text)
 new_text = re.sub(pattern.upper(), vowel.upper(), new_text)
+
+```
+
+## Chapter 9 - Random, Generating arg errors
+
+```PYTHON
+
+import random
+random.seed(args.seed)
+
+adjectives = """
+bankrupt base caterwauling corrupt cullionly detestable dishonest false
+filthsome filthy foolish foul gross heedless
+""".strip().split()
+
+random.choice(adjectives)   # single value
+random.sample(adjectives,3) # multiple value, non repeating
+random.choices(adjectives,3) # multiple value, repeating
+
+```
+
+```PYTHON
+
+    parser.add_argument('-n',
+                        '--number',
+                        help='Number of insults',
+                        metavar='insults',
+                        type=int,
+                        default=3)
+
+    args = parser.parse_args()
+
+    if args.number < 1:
+        parser.error(f'--number "{args.number}" must be > 0')
+
+    return parser.parse_args()
 
 ```
