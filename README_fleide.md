@@ -304,7 +304,7 @@ new_text = re.sub(pattern.upper(), vowel.upper(), new_text)
 
 ```
 
-## Chapter 9 - Random, Generating arg errors
+## Chapter 9 - Random, Generating arg errors, STDERR
 
 ```PYTHON
 
@@ -324,18 +324,26 @@ random.choices(adjectives,3) # multiple value, repeating
 
 ```PYTHON
 
-    parser.add_argument('-n',
-                        '--number',
-                        help='Number of insults',
-                        metavar='insults',
-                        type=int,
-                        default=3)
+parser.add_argument('-n',
+                    '--number',
+                    help='Number of insults',
+                    metavar='insults',
+                    type=int,
+                    default=3)
 
-    args = parser.parse_args()
+args = parser.parse_args()
 
-    if args.number < 1:
-        parser.error(f'--number "{args.number}" must be > 0')
+if args.number < 1:
+    parser.error(f'--number "{args.number}" must be > 0')
 
-    return parser.parse_args()
+return parser.parse_args()
+
+```
+
+```PYTHON
+
+import sys
+sys.exit()              # returns 0
+sys.exit('Whatever')    # returns 1 on STDERR/2
 
 ```
