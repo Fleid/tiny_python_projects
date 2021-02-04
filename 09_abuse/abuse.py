@@ -69,11 +69,9 @@ def main():
     ratcatcher recreant rogue scold slave swine traitor varlet villain worm
     """.strip().split()
 
-    insults = random.sample(source_nouns, args.number)
-
-    for i in range(args.number):
+    for _ in range(args.number):
         adjectives = ', '.join(random.sample(source_adjectives,k=args.adjectives))
-        insult = f'You {adjectives} {insults[i]}!'
+        insult = f'You {adjectives} {random.choice(source_nouns)}!'
         print(insult)
 
 # --------------------------------------------------
