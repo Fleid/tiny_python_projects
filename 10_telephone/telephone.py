@@ -36,6 +36,9 @@ def get_args():
 
     args = parser.parse_args()
 
+    if args.mutations < 0 or args.mutations > 1:
+        parser.error(f'--mutations "{args.mutations}" must be between 0 and 1')
+
     if os.path.isfile(args.text):
         args.text = open(args.text).read().rstrip()
 
