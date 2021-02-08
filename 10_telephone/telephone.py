@@ -7,6 +7,8 @@ Purpose: Rock the Casbah
 
 import argparse
 import os
+import random
+import string
 
 # --------------------------------------------------
 def get_args():
@@ -50,18 +52,20 @@ def main():
     """Make a jazz noise here"""
 
     args = get_args()
-    str_arg = args.arg
-    int_arg = args.int
-    file_arg = args.file
-    flag_arg = args.on
-    pos_arg = args.positional
+    random.seed(args.seed)
 
-    print(f'str_arg = "{str_arg}"')
-    print(f'int_arg = "{int_arg}"')
-    print('file_arg = "{}"'.format(file_arg.name if file_arg else ''))
-    print(f'flag_arg = "{flag_arg}"')
-    print(f'positional = "{pos_arg}"')
+    num_mutations = round(len(args.text) * args.mutations)
+    alpha = ''.join(sorted(string.ascii_letters + string.punctuation))
+    indexes = random.sample(range(len(args.text)), num_mutations)
 
+    mutated = args.text
+    for i in indexes:
+        mutation = random.choice(alpha.replace(mutated[i],'')) #removing the current char from the options
+        mutated = mutated[:i]+mutation+mutated[i+1:]
+
+
+    print(f'You said: "{args.text}"')
+    print(f'I heard : "{mutated}"')
 
 # --------------------------------------------------
 if __name__ == '__main__':

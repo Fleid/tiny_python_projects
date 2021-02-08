@@ -97,6 +97,12 @@ word[n:p]   # substring()
 word[:p]    # left()
 word[n:]    # right()
 
+# mutating via a list
+
+text = list(text)
+text[13] = 'A'
+text = ''.join(text)
+
 ```
 
 ## Chapter 3 - Lists
@@ -350,8 +356,12 @@ sys.exit('Whatever')    # returns 1 on STDERR/2
 
 ```
 
-## Chapter 10 -
+## Chapter 10 - String library
 
 ```PYTHON
+
+import string
+
+alpha = ''.join(sorted(string.ascii_letters + string.punctuation))
 
 ```
