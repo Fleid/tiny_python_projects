@@ -6,47 +6,40 @@ Purpose: Rock the Casbah
 """
 
 import argparse
-
+import os
 
 # --------------------------------------------------
 def get_args():
     """Get command-line arguments"""
 
     parser = argparse.ArgumentParser(
-        description='Rock the Casbah',
+        description='Telephone',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-    parser.add_argument('positional',
-                        metavar='str',
-                        help='A positional argument')
+    parser.add_argument('text',
+                        metavar='text',
+                        help='Input text or file')
 
-    parser.add_argument('-a',
-                        '--arg',
-                        help='A named string argument',
-                        metavar='str',
-                        type=str,
-                        default='')
-
-    parser.add_argument('-i',
-                        '--int',
-                        help='A named integer argument',
+    parser.add_argument('-s',
+                        '--seed',
+                        help='Random seed',
                         metavar='int',
                         type=int,
-                        default=0)
-
-    parser.add_argument('-f',
-                        '--file',
-                        help='A readable file',
-                        metavar='FILE',
-                        type=argparse.FileType('rt'),
                         default=None)
 
-    parser.add_argument('-o',
-                        '--on',
-                        help='A boolean flag',
-                        action='store_true')
+    parser.add_argument('-m',
+                        '--mutations',
+                        help='Percent mutations',
+                        metavar='float',
+                        type=float,
+                        default=0.1)
 
-    return parser.parse_args()
+    args = parser.parse_args()
+
+    if os.path.isfile(args.text):
+        args.text = open(args.text).read().rstrip()
+
+    return args
 
 
 # --------------------------------------------------
