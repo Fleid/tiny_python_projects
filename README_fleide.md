@@ -82,6 +82,8 @@ pylint hello.py
 
 ## Chapter 2 - Strings
 
+Strings are immutable in Python.
+
 ```PYTHON
 
 help(str)
@@ -345,5 +347,11 @@ return parser.parse_args()
 import sys
 sys.exit()              # returns 0
 sys.exit('Whatever')    # returns 1 on STDERR/2
+
+```
+
+## Chapter 10 -
+
+```PYTHON
 
 ```
