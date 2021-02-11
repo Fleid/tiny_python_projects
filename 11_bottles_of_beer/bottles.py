@@ -34,11 +34,16 @@ def get_args():
 # --------------------------------------------------
 def verse(bottle):
     """Sing a verse"""
+
+    first = 's' if bottle > 1 else ''
+    second = '' if bottle == 2 else 's'
+    last = 'No more' if bottle == 1 else bottle-1
+
     return '\n'.join([
-        '1 bottle of beer on the wall,'
-        '1 bottle of beer,',
+        f'{bottle} bottle{first} of beer on the wall,',
+        f'{bottle} bottle{first} of beer,',
         'Take one down, pass it around,',
-        'No more bottles of beer on the wall!'
+        f'{last} bottle{second} of beer on the wall!'
     ])
 
 
@@ -48,7 +53,7 @@ def test_verse():
 
     last_verse = verse(1)
     assert last_verse == '\n'.join([
-        '1 bottle of beer on the wall,'
+        '1 bottle of beer on the wall,',
         '1 bottle of beer,',
         'Take one down, pass it around,',
         'No more bottles of beer on the wall!'
@@ -56,7 +61,7 @@ def test_verse():
 
     two_bottles = verse(2)
     assert two_bottles == '\n'.join([
-        '2 bottles of beer on the wall,'
+        '2 bottles of beer on the wall,',
         '2 bottles of beer,',
         'Take one down, pass it around,',
         '1 bottle of beer on the wall!'
@@ -70,6 +75,9 @@ def main():
     args = get_args()
 
     num_list = list(range(args.num, 0, -1))
+    for i in num_list:
+        print(verse(i) + ('\n' if i > 1 else ''))
+
 
 # --------------------------------------------------
 if __name__ == '__main__':
