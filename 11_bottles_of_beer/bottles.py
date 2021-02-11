@@ -75,8 +75,11 @@ def main():
     args = get_args()
 
     num_list = list(range(args.num, 0, -1))
-    for i in num_list:
-        print(verse(i) + ('\n' if i > 1 else ''))
+
+    #for i in num_list:
+    #    print(verse(i) + ('\n' if i > 1 else ''))
+
+    print('\n\n'.join(map(verse,range(args.num, 0, -1))))
 
 
 # --------------------------------------------------

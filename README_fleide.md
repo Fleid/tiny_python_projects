@@ -294,7 +294,6 @@ def new_char(c):
 
 new_text = ''.join(map(new_char,text))
 
-
 # Using the map (lazy) function with anonymous function (lambda)
 
 new_text = ''.join(
