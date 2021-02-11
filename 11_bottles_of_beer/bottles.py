@@ -2,7 +2,7 @@
 """
 Author : fleide <fleide@localhost>
 Date   : 2021-02-11
-Purpose: Rock the Casbah
+Purpose: Chapter 11
 """
 
 import argparse
@@ -13,40 +13,54 @@ def get_args():
     """Get command-line arguments"""
 
     parser = argparse.ArgumentParser(
-        description='Rock the Casbah',
+        description='Bottles of beer song',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-    parser.add_argument('positional',
-                        metavar='str',
-                        help='A positional argument')
-
-    parser.add_argument('-a',
-                        '--arg',
-                        help='A named string argument',
-                        metavar='str',
-                        type=str,
-                        default='')
-
-    parser.add_argument('-i',
-                        '--int',
-                        help='A named integer argument',
-                        metavar='int',
+    parser.add_argument('-n',
+                        '--num',
+                        help='How many bottles',
+                        metavar='number',
                         type=int,
-                        default=0)
+                        default=10)
 
-    parser.add_argument('-f',
-                        '--file',
-                        help='A readable file',
-                        metavar='FILE',
-                        type=argparse.FileType('rt'),
-                        default=None)
+    args = parser.parse_args()
 
-    parser.add_argument('-o',
-                        '--on',
-                        help='A boolean flag',
-                        action='store_true')
+    if args.num < 1:
+        parser.error(f'--num "{args.num}" must be greater than 0')
 
-    return parser.parse_args()
+    return args
+
+
+# --------------------------------------------------
+def verse(bottle):
+    """Sing a verse"""
+    return '\n'.join([
+        '1 bottle of beer on the wall,'
+        '1 bottle of beer,',
+        'Take one down, pass it around,',
+        'No more bottles of beer on the wall!'
+    ])
+
+
+# --------------------------------------------------
+def test_verse():
+    """Test verse"""
+
+    last_verse = verse(1)
+    assert last_verse == '\n'.join([
+        '1 bottle of beer on the wall,'
+        '1 bottle of beer,',
+        'Take one down, pass it around,',
+        'No more bottles of beer on the wall!'
+    ])
+
+    two_bottles = verse(2)
+    assert two_bottles == '\n'.join([
+        '2 bottles of beer on the wall,'
+        '2 bottles of beer,',
+        'Take one down, pass it around,',
+        '1 bottle of beer on the wall!'
+    ])
 
 
 # --------------------------------------------------
@@ -54,18 +68,8 @@ def main():
     """Make a jazz noise here"""
 
     args = get_args()
-    str_arg = args.arg
-    int_arg = args.int
-    file_arg = args.file
-    flag_arg = args.on
-    pos_arg = args.positional
 
-    print(f'str_arg = "{str_arg}"')
-    print(f'int_arg = "{int_arg}"')
-    print('file_arg = "{}"'.format(file_arg.name if file_arg else ''))
-    print(f'flag_arg = "{flag_arg}"')
-    print(f'positional = "{pos_arg}"')
-
+    num_list = list(range(args.num, 0, -1))
 
 # --------------------------------------------------
 if __name__ == '__main__':

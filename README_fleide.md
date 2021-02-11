@@ -131,6 +131,8 @@ items.reverse()         #in-place
 sorted(items)           # returns a new sorted list
 reversed(items)         #returns a new reversed list, lazy, needs to be invoked via list(...)
 
+list(range(0, 10, 2))   # range is lazy, list forces the output. Here 2 is the step
+
 items_joined = ', '.join(items)        # output a single string with separator
 
 # easier way to generate a list of individual static words
@@ -363,5 +365,20 @@ sys.exit('Whatever')    # returns 1 on STDERR/2
 import string
 
 alpha = ''.join(sorted(string.ascii_letters + string.punctuation))
+
+```
+
+## Chapter 11 - Functions
+
+`pytest myprogram.py` with naming convention `def test_myfunction()` will run tests included in the file.
+
+
+```PYTHON
+
+def test_myfunction():
+    """Test myfunction"""
+
+    myfunction_1 = myfunction(1)
+    assert myfunction_1 == 'Expected value for 1'
 
 ```
