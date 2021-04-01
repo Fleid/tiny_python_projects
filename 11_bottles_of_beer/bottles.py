@@ -79,6 +79,7 @@ def main():
     #for i in num_list:
     #    print(verse(i) + ('\n' if i > 1 else ''))
 
+    # String joins the result of applying verse to the range
     print('\n\n'.join(map(verse,range(args.num, 0, -1))))
 
 
