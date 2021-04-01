@@ -7,6 +7,15 @@ Terminal displays:
 - Bottom left (alt shift -), **test** : `pytest -v -x test.py` or `make` if there's a Makefile
 - Bottom right (alt shift =), **git** : `git add.` `git commit -m ...`, `git push origin master`
 
+New chapter:
+```BASH
+cd ~/repos/tiny_python_projects
+mv 00_TODO/XX_yyy XX_yyy
+./bin/new.py XX_yyy/zzz.py
+git add .
+git commit -m "Init chapter XX"
+```
+
 ## Chapter 0 - Installation
 
 First pip was missing so:
