@@ -376,7 +376,7 @@ alpha = ''.join(sorted(string.ascii_letters + string.punctuation))
 
 ```
 
-## Chapter 11 - Functions
+## Chapter 11 - Functions (testing)
 
 `pytest myprogram.py` with naming convention `def test_myfunction()` will run tests included in the file.
 
@@ -390,3 +390,6 @@ def test_myfunction():
     assert myfunction_1 == 'Expected value for 1'
 
 ```
+
+## Chapter 12 - Random bis
+
